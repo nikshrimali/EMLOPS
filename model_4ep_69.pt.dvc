@@ -1,0 +1,4 @@
+outs:
+- md5: 1cab0990140e453910abd968454b0c1c
+  size: 43431
+  path: model_4ep_69.pt
