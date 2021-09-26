@@ -1,11 +1,12 @@
 import pytest
 import random
-
+import glob
 import os
-import inspect
-import re
-import cmath
-import math
+
+
+import pandas as pd
+
+df = pd.read_csv('metrics.csv')
 
 
 README_CONTENT_CHECK_FOR = []
@@ -50,3 +51,20 @@ def test_readme_file_for_formatting():
     content = f.read()
     f.close()
     assert content.count("#") >= 1
+
+
+def test_check_accuracy():
+    assert df.tail(1)['Train_acc'].item() > 70, "This model is unworthy, overall accuracy less than 70"
+
+
+def test_check_class_wise_accuracy():
+    assert df.tail(1)['Cats_Accuracy'].item() > 70 and df.tail(1)['Dogs_Accuracy'].item() > 70, "This model is unworthy class wise accuracy less than 70"
+
+def test_check_pt():
+    root_dir = os.getcwd()
+    assert len(list(glob.glob('*.pt'))) == 0, "No model Uploads on GIT"
+
+
+def test_check_zip():
+    root_dir = os.getcwd()
+    assert len(list(glob.glob('*.zip'))) == 0, "No model Uploads on GIT"
