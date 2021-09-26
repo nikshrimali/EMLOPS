@@ -27,8 +27,12 @@ This was too cute to ignore
 
 - ### Model 1 - From scratch
   - #### Metrics
+
+
 - ### Model 2 - Pretrained VGG16
   - #### Metrics
-
-
+| Epochs | Test Accuracy  | Dogs Accuracy  | Cats Accuracy  |
+| :---:   | :-: | :-: | :-: |
+| 9 | 98.983 | 99.375 | 98.5185  |
+| 10 | 98.6441 | 98.75 | 98.5185 |
 

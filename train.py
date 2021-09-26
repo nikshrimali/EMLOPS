@@ -15,7 +15,7 @@ from utils import visualize_augmentations, seed_everything, plot_data
 import pandas as pd
 import random
 from torchvision import models
-from model import Net
+# from model import Net
 
 
 
@@ -210,24 +210,24 @@ def test(model, device, val_dataloader, loss_fn):
 
 def run(EPOCHS = 2, BATCH_SIZE=256):
 
-    # use_pretrained = True
-    # model = models.vgg16(pretrained=use_pretrained)
+    use_pretrained = True
+    model = models.vgg16(pretrained=use_pretrained)
 
-    # model.classifier[6] = torch.nn.Linear(in_features=4096, out_features=2)
+    model.classifier[6] = torch.nn.Linear(in_features=4096, out_features=2)
 
-    # # Specify The Layers for updating
-    # params_to_update = []
+    # Specify The Layers for updating
+    params_to_update = []
 
-    # update_params_name = ['classifier.6.weight', 'classifier.6.bias']
+    update_params_name = ['classifier.6.weight', 'classifier.6.bias']
 
-    # for name, param in model.named_parameters():
-    #     if name in update_params_name:
-    #         param.requires_grad = True
-    #         params_to_update.append(param)
-    #     else:
-    #         param.requires_grad = False
+    for name, param in model.named_parameters():
+        if name in update_params_name:
+            param.requires_grad = True
+            params_to_update.append(param)
+        else:
+            param.requires_grad = False
 
-    model = Net().to(device)
+    # model = Net().to(device)
 
     train_dataset = CatsnDogsDataset(root=os.getcwd(), transform=get_transforms())
     val_dataset = CatsnDogsDataset(root=os.getcwd(), train=False, transform=get_transforms(mode='val'))
