@@ -11,13 +11,6 @@ df = pd.read_csv('metrics.csv')
 
 README_CONTENT_CHECK_FOR = []
 
-def generate_random_list(start, end, in_range):
-    '''Generates a random list of numbers as between start_index, end_index and range'''
-    list_gen = []
-    for _ in range(in_range):
-        rand_num = random.randint(start, end)
-        list_gen.append(rand_num)
-    return list_gen
 
 def test_readme_exists():
     '''Checks if README.md exists'''
@@ -29,7 +22,7 @@ def test_readme_contents():
     readme = open("README.md", "r", encoding="utf-8")
     readme_words = readme.read().split()
     readme.close()
-    assert len(readme_words) >= 1, "Make your README.md file interesting! Add atleast 100 words"
+    assert len(readme_words) >= 50, "Make your README.md file interesting! Add atleast 100 words"
 
 
 def test_readme_proper_description():
@@ -50,15 +43,15 @@ def test_readme_file_for_formatting():
     f = open("README.md", "r")
     content = f.read()
     f.close()
-    assert content.count("#") >= 1
+    assert content.count("#") >= 5
 
 
 def test_check_accuracy():
-    assert df.tail(1)['Train_acc'].item() > 70, "This model is unworthy, overall accuracy less than 70"
+    assert int(df.tail(1)['Train_acc'].item()) > 70, "This model is unworthy, overall accuracy less than 70"
 
 
 def test_check_class_wise_accuracy():
-    assert df.tail(1)['Cats_Accuracy'].item() > 70 and df.tail(1)['Dogs_Accuracy'].item() > 70, "This model is unworthy class wise accuracy less than 70"
+    assert int(df.tail(1)['Cats_Accuracy'].item()) > 70 and int(df.tail(1)['Dogs_Accuracy'].item()) > 70, "This model is unworthy class wise accuracy less than 70"
 
 def test_check_pt():
     root_dir = os.getcwd()
