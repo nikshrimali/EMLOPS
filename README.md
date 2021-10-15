@@ -1,5 +1,14 @@
 # Flask/Pytorch/Docker starter app
 
+## Tasks
+
+- Edit the UI such that it shows your/your-team name. Customize it. You will be using this in the future as well. Make sure to add a reference to this original GitHub repo/author.
+- Change the application such that, I can upload (a maximum of) 3 images simultaneously, and upload them using a single upload button and then see the results.
+- Show the uploaded image on the final page when you show the results as well.
+- Show the Classification Name, and Confidence level of the last 5 images uploaded (try any user, default is current user)
+- In the Dockerfile make changes such that it uses Entrypoint to load a sample image from your docker image and show results on the landing page.
+- Add a dropdown menu to your title-bar to allow me to select this app, or see a page listing your/your-team member's information
+
 This project is aimed to help machine learning developers to quickly build and deploy a Flask web app that take advantage of their machine learning  ready PyTorch model. The documentation explains how to get up and running with either virtualenv or Docker.
 
 ![Website mockup](assets/screenshot.png)

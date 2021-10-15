@@ -1,12 +1,8 @@
-FROM python:3
-
-MAINTAINER Imad Toubal
+FROM python:3.8
 
 WORKDIR /app
 
 COPY './requirements.txt' .
-
-# RUN apt-get install libgtk2.0-dev pkg-config -yqq 
 
 RUN pip install --upgrade pip
 

@@ -3,9 +3,24 @@
 {% block content %}
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <p class="lead">File uploaded successfully. You have uploaded an image of</p>
-    <h1 class="display-4">{{name}}!</h1>
-    <p class="mt-5">Confidence: <strong>{{confidence}}%</strong></p>
+    <p class="lead">Files uploaded successfully. You have uploaded an image of</p>
+
+    {% for details in dict_results.values() %}
+        <h1 class="display-4">{{details[0]}}!</h1>
+        <p class="mt-5">Confidence: <strong>{{details[1]}}%</strong></p>
+        <p>{{details[2]}}</p>
+        <img src="{{details[2]}}">
+
+    {% endfor %}
+    <h2>Previous Predictions</h2>
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+</body>
+        
+
+    <img src="/templates/uploads/rose.jpg">
+
     <p class="mt-5"> <a href="/">Try again</a></p>
 </div>
 
