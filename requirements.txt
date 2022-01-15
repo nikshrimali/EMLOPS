@@ -1,8 +1,0 @@
-pillow
-scipy
-torch==1.8.1
-torchvision
-tqdm>=4.41.0,<5
-albumentations==1.0.3
-torchsummary
-pandas

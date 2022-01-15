@@ -1,8 +1,2 @@
-/data
-/model_15ep_75.6.pt
-/model_15ep_72.pt
-/model_4ep_69.pt
-/model_10ep_59.pt
-/__pycache__
-/model_10ep_98.pt
-.DS_Store
+data
+*.tgz
